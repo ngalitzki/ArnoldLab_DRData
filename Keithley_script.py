@@ -3,7 +3,7 @@ import numpy as np
 import time
 from datetime import datetime
 
-fname = 'TEST_still_loop_20170811.txt'
+fname = 'LoadCurve_Run1_Start20170811.txt'
 
 rm = visa.ResourceManager()
 print(rm.list_resources())
@@ -11,17 +11,17 @@ print(rm.list_resources())
 psup = rm.open_resource('USB0::0x05E6::0x2230::9102893::0::INSTR')
 print(psup.query('*idn?'))
 
-still_maxP = 20.0/1000 #20 mW 
-cp_maxP = 1.0/1000 #1000 uW
-mc_maxP = 1.0/1000 #1000 uW
+still_maxP = 18.0/1000 #18 mW 
+cp_maxP = 0.9/1000 #900 uW
+mc_maxP = 0.6/1000 #600 uW
 
-still_steps = 1
-cp_steps = 1
-mc_steps = 1
+still_steps = 6
+cp_steps = 6
+mc_steps = 6
 
-still_p = np.arange(0, still_maxP*(1+1/still_steps), still_maxP/still_steps)
-cp_p = np.arange(0, cp_maxP*(1+1/cp_steps), cp_maxP/cp_steps)
-mc_p = np.arange(0, mc_maxP*(1+1/mc_steps), mc_maxP/mc_steps)
+still_p = np.linspace(0, still_maxP, num=still_steps)
+cp_p = np.linspace(0, cp_maxP, cp_steps)
+mc_p = np.linspace(0, mc_maxP, mc_steps)
 
 still_r = 120
 cp_r = 250
@@ -40,7 +40,7 @@ print('CP Vs: ', cp_v)
 print('MC Vs: ', mc_v)
 
 #Columns: date time vs vc vm i... p... 
-data=np.empty(((still_steps+1)*(cp_steps+1)*(mc_steps+1), 11), dtype=object)
+data=np.empty(((still_steps)*(cp_steps)*(mc_steps), 11), dtype=object)
 #data[:] = np.nan
 print('Data shape', data.shape)
 
@@ -62,7 +62,7 @@ for i, val in enumerate(still_v):
 			psup.write('inst:sel ch3')
 			psup.write('volt '+np.str(mcval))
 
-			time.sleep(1)	
+			time.sleep(60*20)	
 
 			psup.write('inst:sel ch1')
 			rest_still_i = np.float(psup.query('meas:curr?'))
