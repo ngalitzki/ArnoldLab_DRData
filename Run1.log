@@ -1,0 +1,750 @@
+('USB0::0x05E6::0x2230::9102893::0::INSTR', 'ASRL1::INSTR', 'ASRL2::INSTR', 'ASRL3::INSTR', 'ASRL4::INSTR', 'ASRL5::INSTR', 'ASRL6::INSTR', 'ASRL7::INSTR', 'ASRL8::INSTR', 'ASRL9::INSTR', 'ASRL10::INSTR')
+Keithley instruments, 2230G-30-1, 9102893, 1.16-1.04
+
+Still Vs:  [ 0.          0.65726707  0.929516    1.13841996  1.31453414  1.46969385]
+CP Vs:  [ 0.          0.21213203  0.3         0.36742346  0.42426407  0.47434165]
+MC Vs:  [ 0.          0.12        0.16970563  0.2078461   0.24        0.26832816]
+Data shape (216, 11)
+Still being set to V, I, P: 0.0 0.0 0.0
+CP being set to V, I, P: 0.0 0.0 0.0
+MC being set to V, I, P: 0.0 0.0 0.0
+Measured rest current 6.58035e-05
+Row check 0 0 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 6.10352e-05
+Row check 1 0 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 6.29425e-05
+Row check 2 0 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 6.00815e-05
+Row check 3 0 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 6.29425e-05
+Row check 4 0 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 6.10352e-05
+Row check 5 0 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 6.00815e-05
+Row check 6 0 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 5.91278e-05
+Row check 7 0 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 6.48499e-05
+Row check 8 0 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 6.19888e-05
+Row check 9 0 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 6.19888e-05
+Row check 10 0 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 6.29425e-05
+Row check 11 0 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 5.72205e-05
+Row check 12 0 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 6.10352e-05
+Row check 13 0 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 5.81741e-05
+Row check 14 0 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 6.38962e-05
+Row check 15 0 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 6.19888e-05
+Row check 16 0 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 6.19888e-05
+Row check 17 0 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 5.91278e-05
+Row check 18 0 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 6.00815e-05
+Row check 19 0 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 6.19888e-05
+Row check 20 0 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 5.81741e-05
+Row check 21 0 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 6.48499e-05
+Row check 22 0 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 6.29425e-05
+Row check 23 0 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 6.38962e-05
+Row check 24 0 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 6.10352e-05
+Row check 25 0 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 5.81741e-05
+Row check 26 0 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 5.24521e-05
+Row check 27 0 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 5.72205e-05
+Row check 28 0 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 6.10352e-05
+Row check 29 0 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 6.19888e-05
+Row check 30 0 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 5.72205e-05
+Row check 31 0 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 6.29425e-05
+Row check 32 0 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 6.29425e-05
+Row check 33 0 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 6.29425e-05
+Row check 34 0 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 5.72205e-05
+Row check 35 0 5 5
+Still being set to V, I, P: 0.657267069006 0.00547722557505 0.0036
+CP being set to V, I, P: 0.0 0.0 0.0
+NOTE: special cp wait time
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506306
+Row check 36 1 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0050621
+Row check 37 1 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0050621
+Row check 38 1 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506878
+Row check 39 1 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0050621
+Row check 40 1 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506783
+Row check 41 1 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506496
+Row check 42 1 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00506401
+Row check 43 1 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00506687
+Row check 44 1 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506496
+Row check 45 1 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00506306
+Row check 46 1 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506592
+Row check 47 1 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506115
+Row check 48 1 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00506973
+Row check 49 1 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0050602
+Row check 50 1 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506878
+Row check 51 1 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00506115
+Row check 52 1 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506592
+Row check 53 1 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506496
+Row check 54 1 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00506783
+Row check 55 1 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00506496
+Row check 56 1 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506783
+Row check 57 1 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00506306
+Row check 58 1 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506496
+Row check 59 1 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506306
+Row check 60 1 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00506496
+Row check 61 1 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00505924
+Row check 62 1 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506687
+Row check 63 1 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00507259
+Row check 64 1 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506973
+Row check 65 1 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00506878
+Row check 66 1 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00506496
+Row check 67 1 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00506878
+Row check 68 1 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00506592
+Row check 69 1 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00506783
+Row check 70 1 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00506401
+Row check 71 1 5 5
+Still being set to V, I, P: 0.92951600309 0.00774596669241 0.0072
+CP being set to V, I, P: 0.0 0.0 0.0
+NOTE: special cp wait time
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00713921
+Row check 72 2 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00713825
+Row check 73 2 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00713921
+Row check 74 2 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00713825
+Row check 75 2 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00714111
+Row check 76 2 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00713634
+Row check 77 2 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00714016
+Row check 78 2 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0071373
+Row check 79 2 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0071373
+Row check 80 2 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00714207
+Row check 81 2 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00713634
+Row check 82 2 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00713444
+Row check 83 2 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00713444
+Row check 84 2 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00714207
+Row check 85 2 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00714016
+Row check 86 2 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00714016
+Row check 87 2 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00713444
+Row check 88 2 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00713539
+Row check 89 2 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00713634
+Row check 90 2 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00714207
+Row check 91 2 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00713825
+Row check 92 2 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00713634
+Row check 93 2 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00713825
+Row check 94 2 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00713634
+Row check 95 2 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00713825
+Row check 96 2 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00714207
+Row check 97 2 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00714302
+Row check 98 2 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0071373
+Row check 99 2 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00714016
+Row check 100 2 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00713825
+Row check 101 2 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00714207
+Row check 102 2 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00713921
+Row check 103 2 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00714111
+Row check 104 2 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00714111
+Row check 105 2 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00714016
+Row check 106 2 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00714111
+Row check 107 2 5 5
+Still being set to V, I, P: 1.13841995766 0.00948683298051 0.0108
+CP being set to V, I, P: 0.0 0.0 0.0
+NOTE: special cp wait time
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872803
+Row check 108 3 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00872517
+Row check 109 3 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00873089
+Row check 110 3 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00872993
+Row check 111 3 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0087328
+Row check 112 3 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00873184
+Row check 113 3 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872898
+Row check 114 3 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00872707
+Row check 115 3 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00872803
+Row check 116 3 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00872898
+Row check 117 3 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00872803
+Row check 118 3 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0087328
+Row check 119 3 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872707
+Row check 120 3 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00872993
+Row check 121 3 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0087328
+Row check 122 3 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00873375
+Row check 123 3 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00872612
+Row check 124 3 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0087328
+Row check 125 3 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872898
+Row check 126 3 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00873089
+Row check 127 3 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00872421
+Row check 128 3 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00873089
+Row check 129 3 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00872898
+Row check 130 3 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00872326
+Row check 131 3 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872803
+Row check 132 3 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00873184
+Row check 133 3 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00872898
+Row check 134 3 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00872707
+Row check 135 3 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00872517
+Row check 136 3 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00873089
+Row check 137 3 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.00872993
+Row check 138 3 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.00873375
+Row check 139 3 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.00872803
+Row check 140 3 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.00873184
+Row check 141 3 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.00872517
+Row check 142 3 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.00872803
+Row check 143 3 5 5
+Still being set to V, I, P: 1.31453413801 0.0109544511501 0.0144
+CP being set to V, I, P: 0.0 0.0 0.0
+NOTE: special cp wait time
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0100689
+Row check 144 4 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100641
+Row check 145 4 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.010067
+Row check 146 4 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0100689
+Row check 147 4 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100679
+Row check 148 4 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0100632
+Row check 149 4 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0100679
+Row check 150 4 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100632
+Row check 151 4 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0100651
+Row check 152 4 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.010066
+Row check 153 4 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100727
+Row check 154 4 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0100641
+Row check 155 4 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0100718
+Row check 156 4 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100727
+Row check 157 4 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.010066
+Row check 158 4 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0100708
+Row check 159 4 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100679
+Row check 160 4 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.010066
+Row check 161 4 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.010067
+Row check 162 4 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100708
+Row check 163 4 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.010067
+Row check 164 4 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0100698
+Row check 165 4 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100641
+Row check 166 4 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0100651
+Row check 167 4 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0100746
+Row check 168 4 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100727
+Row check 169 4 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0100689
+Row check 170 4 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0100689
+Row check 171 4 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100641
+Row check 172 4 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0100651
+Row check 173 4 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0100727
+Row check 174 4 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0100632
+Row check 175 4 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.010066
+Row check 176 4 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0100679
+Row check 177 4 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0100632
+Row check 178 4 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0100689
+Row check 179 4 5 5
+Still being set to V, I, P: 1.46969384567 0.0122474487139 0.018
+CP being set to V, I, P: 0.0 0.0 0.0
+NOTE: special cp wait time
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112534
+Row check 180 5 0 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112486
+Row check 181 5 0 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112514
+Row check 182 5 0 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112467
+Row check 183 5 0 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112505
+Row check 184 5 0 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112448
+Row check 185 5 0 5
+CP being set to V, I, P: 0.212132034356 0.000848528137424 0.00018
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112495
+Row check 186 5 1 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112476
+Row check 187 5 1 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112457
+Row check 188 5 1 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112514
+Row check 189 5 1 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112476
+Row check 190 5 1 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112362
+Row check 191 5 1 5
+CP being set to V, I, P: 0.3 0.0012 0.00036
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112534
+Row check 192 5 2 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112505
+Row check 193 5 2 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112572
+Row check 194 5 2 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112514
+Row check 195 5 2 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112495
+Row check 196 5 2 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112457
+Row check 197 5 2 5
+CP being set to V, I, P: 0.367423461417 0.00146969384567 0.00054
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112505
+Row check 198 5 3 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112429
+Row check 199 5 3 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112457
+Row check 200 5 3 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112543
+Row check 201 5 3 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112438
+Row check 202 5 3 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112486
+Row check 203 5 3 5
+CP being set to V, I, P: 0.424264068712 0.00169705627485 0.00072
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112495
+Row check 204 5 4 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112476
+Row check 205 5 4 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112476
+Row check 206 5 4 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112514
+Row check 207 5 4 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112562
+Row check 208 5 4 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112505
+Row check 209 5 4 5
+CP being set to V, I, P: 0.474341649025 0.0018973665961 0.0009
+MC being set to V, I, P: 0.0 0.0 0.0
+NOTE: special mc wait time
+Measured rest current 0.0112514
+Row check 210 5 5 0
+MC being set to V, I, P: 0.12 0.001 0.00012
+Measured rest current 0.0112505
+Row check 211 5 5 1
+MC being set to V, I, P: 0.169705627485 0.00141421356237 0.00024
+Measured rest current 0.0112495
+Row check 212 5 5 2
+MC being set to V, I, P: 0.207846096908 0.00173205080757 0.00036
+Measured rest current 0.0112524
+Row check 213 5 5 3
+MC being set to V, I, P: 0.24 0.002 0.00048
+Measured rest current 0.0112467
+Row check 214 5 5 4
+MC being set to V, I, P: 0.2683281573 0.0022360679775 0.0006
+Measured rest current 0.0112495
+Row check 215 5 5 5
+[['12-08-17' '00:52:17' '0.0' ..., '5.1961207347e-07'
+  '4.1438831289999995e-06' '2.45563063212e-08']
+ ['12-08-17' '01:12:19' '0.0' ..., '4.4703547668480005e-07'
+  '4.082698816e-06' '8.801051519999999e-05']
+ ['12-08-17' '01:32:21' '0.0' ..., '4.754109967500001e-07'
+  '4.26755160225e-06' '0.00017162408737199998']
+ ..., 
+ ['15-08-17' '13:19:23' '1.46969384567' ..., '0.015193980691199998'
+  '0.000854857422225' '0.0002578283568']
+ ['15-08-17' '13:39:25' '1.46969384567' ..., '0.015178591306799999'
+  '0.0008619265600000001' '0.0003469632192']
+ ['15-08-17' '13:59:27' '1.46969384567' ..., '0.015186150030000003'
+  '0.0008645838289' '0.00044533128196800004']]

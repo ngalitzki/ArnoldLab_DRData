@@ -1,8 +1,12 @@
 import visa
 import numpy as np
 import time
+import sys
 from datetime import datetime
 
+old_stdout = sys.stdout
+log_file = open('Run1.log', 'w')
+sys.stdout = log_file
 fname = 'LoadCurve_Run1_Start20170811.txt'
 
 rm = visa.ResourceManager()
@@ -46,6 +50,10 @@ print('Data shape', data.shape)
 
 row=0
 
+wtime = 20*60
+time.sleep(60*60)
+
+
 for i, val in enumerate(still_v):
 	print('Still being set to V, I, P:', val, still_i[i], still_p[i])	 
 	psup.write('inst:sel ch1')
@@ -55,14 +63,20 @@ for i, val in enumerate(still_v):
 		print('CP being set to V, I, P:', cpval, cp_i[j], cp_p[j])	 
 		psup.write('inst:sel ch2')
 		psup.write('volt '+np.str(cpval))
-		
+
+		if row !=0 and cpval == 0.0:
+		  time.sleep(wtime)
+		  print('NOTE: special cp wait time')		
 
 		for k, mcval in enumerate(mc_v):
 			print('MC being set to V, I, P:', mcval, mc_i[k], mc_p[k])	 
 			psup.write('inst:sel ch3')
 			psup.write('volt '+np.str(mcval))
-
-			time.sleep(60*20)	
+			
+			if row != 0 and mcval ==0.0:
+			  time.sleep(wtime)
+			  print('NOTE: special mc wait time')
+			time.sleep(wtime)	
 
 			psup.write('inst:sel ch1')
 			rest_still_i = np.float(psup.query('meas:curr?'))
@@ -78,6 +92,7 @@ for i, val in enumerate(still_v):
 			data[row, :] = np.array([[time.strftime('%d-%m-%y'), time.strftime('%X'), val, cpval, mcval,rest_still_i, rest_cp_i, rest_mc_i, rest_still_i**2 * still_r, rest_cp_i**2 * cp_r, rest_mc_i**2 * mc_r ]]) 
 		
 			row +=1
+		
 print(data)
 fmt = '%s\t%s\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t'
 np.savetxt(fname, data, fmt='%s')
@@ -90,3 +105,6 @@ psup.write('inst:sel ch3')
 psup.write('volt 0.0')
 
 psup.close()
+
+sys.stdout = old_stdout
+log_file.close()
