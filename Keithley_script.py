@@ -6,9 +6,8 @@ from datetime import datetime
 
 old_stdout = sys.stdout
 log_file = open('Run1.log', 'w')
-f = open('Run2_interruptLog.txt', 'w')
 sys.stdout = log_file
-fname = 'LoadCurve_Run2_Start20170816.txt'
+fname = 'LoadCurve_Run1_Start20170811.txt'
 
 rm = visa.ResourceManager()
 print(rm.list_resources())
@@ -16,13 +15,13 @@ print(rm.list_resources())
 psup = rm.open_resource('USB0::0x05E6::0x2230::9102893::0::INSTR')
 print(psup.query('*idn?'))
 
-still_maxP = 21.0/1000 #21 mW 
-cp_maxP = 1.35/1000 #1350 uW
-mc_maxP = 0.8/1000 #800 uW
+still_maxP = 18.0/1000 #18 mW
+cp_maxP = 0.9/1000 #900 uW
+mc_maxP = 0.6/1000 #600 uW
 
-still_steps = 9
-cp_steps = 9
-mc_steps = 9
+still_steps = 6
+cp_steps = 6
+mc_steps = 6
 
 still_p = np.linspace(0, still_maxP, num=still_steps)
 cp_p = np.linspace(0, cp_maxP, cp_steps)
@@ -44,40 +43,40 @@ print('Still Vs: ', still_v)
 print('CP Vs: ', cp_v)
 print('MC Vs: ', mc_v)
 
-#Columns: date time vs vc vm i... p... 
+#Columns: date time vs vc vm i... p...
 data=np.empty(((still_steps)*(cp_steps)*(mc_steps), 11), dtype=object)
 #data[:] = np.nan
 print('Data shape', data.shape)
 
 row=0
 
-wtime = 0*60
-time.sleep(0*60)
+wtime = 20*60
+time.sleep(60*60)
 
 
 for i, val in enumerate(still_v):
-	print('Still being set to V, I, P:', val, still_i[i], still_p[i])	 
+	print('Still being set to V, I, P:', val, still_i[i], still_p[i])
 	psup.write('inst:sel ch1')
 	psup.write('volt '+np.str(val))
 
 	for j, cpval in enumerate(cp_v):
-		print('CP being set to V, I, P:', cpval, cp_i[j], cp_p[j])	 
+		print('CP being set to V, I, P:', cpval, cp_i[j], cp_p[j])
 		psup.write('inst:sel ch2')
 		psup.write('volt '+np.str(cpval))
 
 		if row !=0 and cpval == 0.0:
 		  time.sleep(wtime)
-		  print('NOTE: special cp wait time')		
+		  print('NOTE: special cp wait time')
 
 		for k, mcval in enumerate(mc_v):
-			print('MC being set to V, I, P:', mcval, mc_i[k], mc_p[k])	 
+			print('MC being set to V, I, P:', mcval, mc_i[k], mc_p[k])
 			psup.write('inst:sel ch3')
 			psup.write('volt '+np.str(mcval))
-			
+
 			if row != 0 and mcval ==0.0:
 			  time.sleep(wtime)
 			  print('NOTE: special mc wait time')
-			time.sleep(wtime)	
+			time.sleep(wtime)
 
 			psup.write('inst:sel ch1')
 			rest_still_i = np.float(psup.query('meas:curr?'))
@@ -85,15 +84,15 @@ for i, val in enumerate(still_v):
 			rest_cp_i = np.float(psup.query('meas:curr?'))
 			psup.write('inst:sel ch3')
 			rest_mc_i = np.float(psup.query('meas:curr?'))
-					
+
 			print('Measured rest current', rest_still_i)
-			
+
 			#row = i*still_steps**2 + j*cp_steps +k
 			print('Row check', row, i, j ,k)
-			data[row, :] = np.array([[time.strftime('%d-%m-%y'), time.strftime('%X'), val, cpval, mcval,rest_still_i, rest_cp_i, rest_mc_i, rest_still_i**2 * still_r, rest_cp_i**2 * cp_r, rest_mc_i**2 * mc_r ]]) 
-			f.write(np.array_str(data[row,:])+'\n')
+			data[row, :] = np.array([[time.strftime('%d-%m-%y'), time.strftime('%X'), val, cpval, mcval,rest_still_i, rest_cp_i, rest_mc_i, rest_still_i**2 * still_r, rest_cp_i**2 * cp_r, rest_mc_i**2 * mc_r ]])
+
 			row +=1
-		
+
 print(data)
 fmt = '%s\t%s\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t'
 np.savetxt(fname, data, fmt='%s')
