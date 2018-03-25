@@ -21,12 +21,15 @@ class bluefors():
 ###############################################################################
 ###############################################################################
 ###############################################################################
-    def brutalize_bluefors_log(bluefors_datafile, epoch = datetime.datetime.fromtimestamp(0)):
+    def brutalize_bluefors_log(self, bluefors_datafile, epoch = datetime.datetime.fromtimestamp(0)):
         '''
         - stupid BF log files are organized in folders according to date with a new one created each day...
           then by channel R and channel T, then inside the file: date, time, value
         - need to import all data from one day from all channels and give it unix timestamps
         '''
+
+
+        self.bluefors_datafile = bluefors_datafile
 
         d = np.genfromtxt(bluefors_datafile, delimiter = 18, dtype = '|S21')
         temperatures = np.loadtxt(bluefors_datafile, delimiter = ',', usecols = (2))
@@ -74,7 +77,8 @@ class bluefors():
             T_data[ch] = {}
 
         # here we build a list of all the data files and their date folders that will get the mashup treatment
-        bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData'
+        #bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData'
+        bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData'
         folders = os.listdir(bluefors_log_path)
         folders = sorted(folders)
 
@@ -107,8 +111,7 @@ class bluefors():
                 elif f[:2] == 'CH' and f[4] == 'T':
                     channel_files[int(f[2])]['T'].append(bluefors_log_path +'/{}/'.format(folder) + f)
 
-        print channel_files[1]['R'][1]
-        print type(channel_files[1]['R'][1])
+
         # now actually load the data
         for ch in channel_files.keys():
 
@@ -126,7 +129,7 @@ class bluefors():
 
             for f in channel_files[ch]['T']:
 
-                bluefors_data.append(brutalize_bluefors_log(f))
+                bluefors_data.append(self.brutalize_bluefors_log(f))
 
                 T_data[ch] = np.concatenate(np.array(bluefors_data), axis = 0)
 
@@ -134,27 +137,31 @@ class bluefors():
 
             plt.figure(figsize = (8,6))
 
-            try:
 
-                for ch in T_data.keys():
 
+            for ch in T_data.keys():
+
+                try:
                     # convert unix time to hours since the first data point
                     # assuming this is the start of the run or something sensible like that...
-                    t = (T_data[ch][:, 0] - T_data[ch][0, 0]) / 60. / 60.
+
+                    t = (T_data[ch][:, 0] - T_data[ch][0, 0])
+                    #/ 60. / 60.
                     plt.plot(t, T_data[ch][:, 1], label = 'CH {:.0f}'.format(ch))
 
-                plt.yscale('log')
-                plt.xlabel('Time [hrs]')
-                plt.ylabel('Temperature [K]')
-                plt.grid(color = '.5')
-                plt.tight_layout()
-                plt.savefig('{}_full_run_all_channels.jpg'.format(folders[0].replace('-', '')), dpi = 150)
+                except TypeError:
 
-            except TypeError:
+                    print 'no data in channel', ch
+                    pass
 
-                print 'no data in channel', ch
+            plt.yscale('log')
+            plt.xlabel('Time [hrs]')
+            plt.ylabel('Temperature [K]')
+            plt.legend()
+            plt.grid(color = '.5')
+            plt.tight_layout()
+            plt.savefig('{}_full_run_all_channels.jpg'.format(folders[0].replace('-', '')), dpi = 150)
 
-                pass
 
         mashed_bluefors_data = {'R': R_data, 'T': T_data}
 
