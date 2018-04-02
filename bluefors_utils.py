@@ -77,14 +77,14 @@ class bluefors():
             T_data[ch] = {}
 
         # here we build a list of all the data files and their date folders that will get the mashup treatment
-        #bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData'
-        bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData'
+        bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData/bluefors_temp_logs_raw'
+        #bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData'
         folders = os.listdir(bluefors_log_path)
         folders = sorted(folders)
 
 
-        start_folder = '18-03-20'
-        stop_folder = '18-03-22'
+        start_folder = '18-03-22'
+        stop_folder = '18-03-28'
 
         if start_folder != None and stop_folder == None:
 
@@ -170,11 +170,14 @@ class bluefors():
 #################################################################################
 #################################################################################
 #################################################################################
-    def load_bluefors_cal(bluefors_calpath = 'C:\\Users\\Dilution Fridge\\Desktop\\0317-04-UCSD-Arnold\\sensors', bluefors_calfiles = ['R10250.340'], plot_calibrations = True):
+    def load_bluefors_cal(self, bluefors_calpath = '/home/arnoldlabws2/ArnoldLab_DRData/sensors/', bluefors_calfiles = ['R10250.340'], plot_calibrations = True):
         '''
         - pretty self-explanatory...saves a plot if you want it to...
         - should work well if you want to specify multiple files if done correctly
         '''
+
+        self.bluefors_calpath = bluefors_calpath
+        self.bluefors_calfiles = bluefors_calfiles
 
         bluefors_cal_data = {}
 
@@ -206,7 +209,8 @@ class bluefors():
             plt.grid(color = '.5')
             plt.legend(framealpha = 1)
             plt.tight_layout()
-            plt.savefig('{}_bluefors_cal_curves.jpg'.format(now()[:9]), dpi = 150)
+            #plt.savefig('{}_bluefors_cal_curves.jpg'.format(now()[:9]), dpi = 150)
+            plt.savefig('{}_bluefors_cal_curves.jpg'.format(bluefors_calfiles[0]), dpi = 150)
 
         return bluefors_cal_data
 
