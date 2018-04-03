@@ -50,7 +50,7 @@ class bluefors():
 ###############################################################################
 ###############################################################################
 ###############################################################################
-    def bluefors_mashup(self, bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData', start_folder = '18-03-20', stop_folder = '18-03-22', plot_data = True):
+    def bluefors_mashup(self, bluefors_log_path, start_folder, stop_folder, plot_data = True):
         '''
         - if 'start_folder' and 'stop_folder' are left as 'None' this takes all BF data folders (one per date)
           in 'bluefors_log_path' and concatenates their data into dictionairies 'R_data' and 'T_data'.
@@ -60,6 +60,11 @@ class bluefors():
           'start_folder' to the mashup party
         - oh, and you also get a sensible unix timestamp which is constructed in 'brutalize_bluefors_log', wooo!
         '''
+
+
+        self.bluefors_log_path = bluefors_log_path
+        self.start_folder = start_folder
+        self.stop_folder = stop_folder
 
         # would be good to add functionality to detect which channels are actually active...
         # but we're not here for that fancy stuff, brute force baby!
@@ -77,14 +82,10 @@ class bluefors():
             T_data[ch] = {}
 
         # here we build a list of all the data files and their date folders that will get the mashup treatment
-        bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData/bluefors_temp_logs_raw'
-        #bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData'
+
         folders = os.listdir(bluefors_log_path)
         folders = sorted(folders)
 
-
-        start_folder = '18-03-22'
-        stop_folder = '18-03-28'
 
         if start_folder != None and stop_folder == None:
 
@@ -170,7 +171,7 @@ class bluefors():
 #################################################################################
 #################################################################################
 #################################################################################
-    def load_bluefors_cal(self, bluefors_calpath = '/home/arnoldlabws2/ArnoldLab_DRData/sensors/', bluefors_calfiles = ['R10250.340'], plot_calibrations = True):
+    def load_bluefors_cal(self, bluefors_calpath, bluefors_calfiles, plot_calibrations = True):
         '''
         - pretty self-explanatory...saves a plot if you want it to...
         - should work well if you want to specify multiple files if done correctly
@@ -217,7 +218,7 @@ class bluefors():
 #################################################################################
 #################################################################################
 #################################################################################
-    def align_standard_and_uncal_data(bluefors_calpath, bluefors_calfiles, mashed_bluefors_data, bluefors_standard_channel,
+    def align_standard_and_uncal_data(self,bluefors_calpath, bluefors_calfiles, mashed_bluefors_data, bluefors_standard_channel,
                                       srs_datafile_fullpath_fullpath, mintemp, maxtemp, all_plots = True):
         '''
         - "master" function to make cal files. identifies measured points closest to the points in the standard's calibraiton file
@@ -234,7 +235,8 @@ class bluefors():
         '''
 
         # load the BF calibration for the sensor we will use as our standard
-        standard_calibration = load_bluefors_cal(bluefors_calpath, bluefors_calfiles)
+        standard_calibration = self.load_bluefors_cal(bluefors_calpath, bluefors_calfiles)
+        standard_calibration = standard_calibration[bluefors_calfiles[0]]
 
         R_data = mashed_bluefors_data['R']
         T_data = mashed_bluefors_data['T']
@@ -299,7 +301,7 @@ class bluefors():
         plt.title('Selected Points: Entire Run')
         plt.grid(color = '.5')
         plt.tight_layout()
-        plt.show()
+        #plt.show()
         plt.savefig('full_run_and_selected_points_all.jpg', dpi = 150)
 
         # this helps the script chop the data into 3 regimes: all of it, cooldown only, and warmup only
@@ -480,7 +482,7 @@ class bluefors():
 
         # this assumes you were smart enough to setup the SRS so that the column headers are the serial
         # numbers of the uncalibrated sensors...
-        srs_sensor_names = lc.getline(srs_datafile_fullpath, 4).rstrip()
+        srs_sensor_names = lc.getline(srs_datafile_fullpath_fullpath, 4).rstrip()
         srs_sensor_names = np.array(srs_sensor_names.split(','))[1:]
 
         # now we need to find where the SRS timestamp coincides with the BF timestamp for the data selected
@@ -513,6 +515,7 @@ class bluefors():
         plt.legend(framealpha = 1)
         plt.grid(color = '.5')
         plt.tight_layout()
+        plt.savefig('test_entire.jpg',dpi=150)
 
         # COOLDOWN
         minindices_cooldown = []
@@ -540,6 +543,7 @@ class bluefors():
         plt.legend(framealpha = 1)
         plt.grid(color = '.5')
         plt.tight_layout()
+        plt.savefig('test_cooldown.jpg',dpi=150)
 
         # WARMUP
         minindices_warmup = []
@@ -567,6 +571,7 @@ class bluefors():
         plt.legend(framealpha = 1)
         plt.grid(color = '.5')
         plt.tight_layout()
+        plt.savefig('test_warmup.jpg',dpi=150)
 
         # pack up the data
         data_all = {'valid_T': valid_T_data_all,
@@ -609,13 +614,17 @@ class bluefors():
 ################################################################################
 ################################################################################
 ################################################################################
-    def create_cal_file(aligned_data, data_subset, smooth_data = True, filter_box = 21, filter_order = 2, plot_cal_curves = True):
+    def create_cal_file(self,aligned_data, data_subset, smooth_data = True, filter_box = 21, filter_order = 2, plot_cal_curves = True):
         '''
         - this uses the data from 'align_standard_and_uncal_data' to create the calibration file
         - 'data_subset' can take values 'all', 'cooldown', or 'warmup', to  specify which slicing you want
         - if 'smooth_data = True' this applies a Savitzky-Golay filter of width 'filter_box' (must be odd)
           and order 'filter_order'
         '''
+
+
+        self.data_subset = data_subset
+        self.aligned_data = aligned_data
 
         data = aligned_data[data_subset]
         sensor_names = data['srs_sensor_names']
@@ -653,10 +662,13 @@ class bluefors():
             plt.legend(framealpha = 1)
             plt.grid(color = '.5')
             plt.tight_layout()
-            plt.savefig(now()[:9] + '_{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
+            #plt.savefig(now()[:9] + '_{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
+            plt.savefig('{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
 
-            header = sensor_names[i] + ' calibration file, created ' + now() + '\nTemperature\tResistance\n\t\t[K]\t\t\t\t[Ohms]\n'
-            new_cal_data = np.flipud(np.transpose(np.array([data['uncal_T'], new_R_cal])))
-            np.savetxt(now()[:9] + '_{}_cal.txt'.format(sensor_names[i]), new_cal_data, header = header, fmt = '%.8e')
+            #header = sensor_names[i] + ' calibration file, created ' + now() + '\nTemperature\tResistance\n\t\t[K]\t\t\t\t[Ohms]\n'
+            #new_cal_data = np.flipud(np.transpose(np.array([data['uncal_T'], new_R_cal])))
+            #np.savetxt(now()[:9] + '_{}_cal.txt'.format(sensor_names[i]), new_cal_data, header = header, fmt = '%.8e')
+            #np.savetxt('test_cal.txt', new_cal_data, header = header, fmt = '%.8e')
+
 
         return cal_data
