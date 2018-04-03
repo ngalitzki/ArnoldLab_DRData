@@ -18,10 +18,10 @@ srs_datafile = '/home/arnoldlabws2/ArnoldLab_DRData/180321_dr_thermo_cal/Data/20
 
 mashed_bluefors_data = bf.bluefors_mashup(bluefors_log_path,bluefors_data_start,bluefors_data_stop)
 
-bluefors_cal_data = bf.load_bluefors_cal(bluefors_calpath,bluefors_calfiles)
+#bluefors_cal_data = bf.load_bluefors_cal(bluefors_calpath,bluefors_calfiles)
 
 
 
 aligned_data = bf.align_standard_and_uncal_data(bluefors_calpath,bluefors_calfiles,mashed_bluefors_data,bluefors_standard_channel,srs_datafile,0.0,100.0)
 
-cal_data = bf.create_cal_file(aligned_data,'all')
+cal_data = bf.create_cal_file(aligned_data,'warmup')

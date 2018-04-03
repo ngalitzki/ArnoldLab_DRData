@@ -210,7 +210,7 @@ class bluefors():
             plt.grid(color = '.5')
             plt.legend(framealpha = 1)
             plt.tight_layout()
-            #plt.savefig('{}_bluefors_cal_curves.jpg'.format(now()[:9]), dpi = 150)
+            plt.savefig('{}_bluefors_cal_curves.jpg'.format(str(datetime.datetime.now())), dpi = 150)
             plt.savefig('{}_bluefors_cal_curves.jpg'.format(bluefors_calfiles[0]), dpi = 150)
 
         return bluefors_cal_data
@@ -267,6 +267,7 @@ class bluefors():
                 standard_R_all.append(standard_calibration['R'][i])
                 standard_T_all.append(standard_calibration['T'][i])
 
+
         # standard_R_all and standard_T_all are the values to use from the calibration file
         # measured_R_all and measured_T_all are the values measured during the run that are closest to the calibrated data
         standard_R_all = np.array(standard_R_all)
@@ -277,10 +278,36 @@ class bluefors():
         R_diff_all = standard_R_all - measured_R_all
         T_diff_all = standard_T_all - measured_T_all
 
+
+        remove_indices = []
+
+        for i in range(measured_T_all.shape[0] - 1):
+            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+                remove_indices.append(i)
+
+
+        standard_R_all = np.delete(standard_R_all, remove_indices)
+        standard_T_all = np.delete(standard_T_all, remove_indices)
+        measured_R_all = np.delete(measured_R_all, remove_indices)
+        measured_T_all = np.delete(measured_T_all, remove_indices)
+        bluefors_times_all = np.delete(bluefors_times_all, remove_indices)
+        R_diff_all = np.delete(R_diff_all, remove_indices)
+        T_diff_all = np.delete(T_diff_all, remove_indices)
+
+        highlight_indices = []
+
+        for i in range(measured_T_all.shape[0] - 1):
+            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+                highlight_indices.append(i)
+
+
+
         dTdt_all = []
         dRdt_all = []
 
+
         for i in range(measured_T_all.shape[0] - 1):
+
 
             dTdt_all.append((measured_T_all[i + 1] - measured_T_all[i]) / (bluefors_times_all[i + 1] - bluefors_times_all[i]))
             dRdt_all.append((measured_R_all[i + 1] - measured_R_all[i]) / (bluefors_times_all[i + 1] - bluefors_times_all[i]))
@@ -291,11 +318,20 @@ class bluefors():
         t1 = (valid_T_data_all[:, 0] - valid_T_data_all[0, 0]) / 60. / 60.
         t2_all = (bluefors_times_all - valid_T_data_all[0, 0]) / 60. / 60.
 
+        # t3 = (bluefors_times_all[highlight_indices] - valid_T_data_all[0,0]) / 60. /60.
+        #
+        #
+        # T_highlight = measured_T_all[highlight_indices]
+
+
+
+
         # this plot shows selected points using the entire "run" dataset
         plt.figure(figsize = (8,6))
         plt.yscale('log')
         plt.plot(t1, valid_T_data_all[:, 1])
         plt.scatter(t2_all, measured_T_all, marker = 'x', color = 'r')
+        # plt.scatter(t3, T_highlight, marker = 'x', color = 'g')
         plt.xlabel('Time [hrs]')
         plt.ylabel('Temperature [K]')
         plt.title('Selected Points: Entire Run')
@@ -352,6 +388,21 @@ class bluefors():
         R_diff_cooldown = standard_R_cooldown - measured_R_cooldown
         T_diff_cooldown = standard_T_cooldown - measured_T_cooldown
 
+        remove_indices_cooldown = []
+
+        for i in range(measured_T_all.shape[0] - 1):
+            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+                remove_indices_cooldown.append(i)
+
+
+        standard_R_cooldown = np.delete(standard_R_cooldown, remove_indices_cooldown)
+        standard_T_cooldown = np.delete(standard_T_cooldown, remove_indices_cooldown)
+        measured_R_cooldown = np.delete(measured_R_cooldown, remove_indices_cooldown)
+        measured_T_cooldown = np.delete(measured_T_cooldown, remove_indices_cooldown)
+        bluefors_times_cooldown = np.delete(bluefors_times_cooldown, remove_indices_cooldown)
+        R_diff_cooldown = np.delete(R_diff_cooldown, remove_indices_cooldown)
+        T_diff_cooldown = np.delete(T_diff_cooldown, remove_indices_cooldown)
+
         standard_R_warmup = np.array(standard_R_warmup)
         standard_T_warmup = np.array(standard_T_warmup)
         measured_R_warmup = np.sort(valid_R_data_warmup[minindices_warmup, 1])
@@ -359,6 +410,21 @@ class bluefors():
         bluefors_times_warmup = valid_R_data_warmup[minindices_warmup, 0]
         R_diff_warmup = standard_R_warmup - measured_R_warmup
         T_diff_warmup = standard_T_warmup - measured_T_warmup
+
+        remove_indices_warmup = []
+
+        for i in range(measured_T_all.shape[0] - 1):
+            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+                remove_indices_warmup.append(i)
+
+
+        standard_R_warmup = np.delete(standard_R_warmup, remove_indices_warmup)
+        standard_T_warmup = np.delete(standard_T_warmup, remove_indices_warmup)
+        measured_R_warmup = np.delete(measured_R_warmup, remove_indices_warmup)
+        measured_T_warmup = np.delete(measured_T_warmup, remove_indices_warmup)
+        bluefors_times_warmup = np.delete(bluefors_times_warmup, remove_indices_warmup)
+        R_diff_warmup = np.delete(R_diff_warmup, remove_indices_warmup)
+        T_diff_warmup = np.delete(T_diff_warmup, remove_indices_warmup)
 
         t1_cooldown = (valid_T_data_cooldown[:, 0] - valid_T_data_cooldown[0, 0]) / 60. / 60.
         t2_cooldown = (bluefors_times_cooldown - valid_T_data_cooldown[0, 0]) / 60. / 60.
@@ -614,7 +680,7 @@ class bluefors():
 ################################################################################
 ################################################################################
 ################################################################################
-    def create_cal_file(self,aligned_data, data_subset, smooth_data = True, filter_box = 21, filter_order = 2, plot_cal_curves = True):
+    def create_cal_file(self,aligned_data, data_subset, smooth_data = False, filter_box = 7, filter_order = 2, plot_cal_curves = True):
         '''
         - this uses the data from 'align_standard_and_uncal_data' to create the calibration file
         - 'data_subset' can take values 'all', 'cooldown', or 'warmup', to  specify which slicing you want
@@ -662,13 +728,12 @@ class bluefors():
             plt.legend(framealpha = 1)
             plt.grid(color = '.5')
             plt.tight_layout()
-            #plt.savefig(now()[:9] + '_{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
-            plt.savefig('{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
+            plt.savefig(str(datetime.datetime.now()) + '_{}_cal_curve.jpg'.format(sensor_names[i]), dpi = 150)
 
-            #header = sensor_names[i] + ' calibration file, created ' + now() + '\nTemperature\tResistance\n\t\t[K]\t\t\t\t[Ohms]\n'
-            #new_cal_data = np.flipud(np.transpose(np.array([data['uncal_T'], new_R_cal])))
-            #np.savetxt(now()[:9] + '_{}_cal.txt'.format(sensor_names[i]), new_cal_data, header = header, fmt = '%.8e')
-            #np.savetxt('test_cal.txt', new_cal_data, header = header, fmt = '%.8e')
+            header = sensor_names[i] + ' calibration file, created ' + str(datetime.datetime.now()) + '\nTemperature\tResistance\n\t\t[K]\t\t\t\t[Ohms]\n'
+            new_cal_data = np.flipud(np.transpose(np.array([data['uncal_T'], new_R_cal])))
+            np.savetxt(str(datetime.datetime.now()) + '_{}_cal.txt'.format(sensor_names[i]), new_cal_data, header = header, fmt = '%.8e')
+
 
 
         return cal_data
