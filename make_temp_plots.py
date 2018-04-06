@@ -24,4 +24,4 @@ mashed_bluefors_data = bf.bluefors_mashup(bluefors_log_path,bluefors_data_start,
 
 aligned_data = bf.align_standard_and_uncal_data(bluefors_calpath,bluefors_calfiles,mashed_bluefors_data,bluefors_standard_channel,srs_datafile,0.0,100.0)
 
-cal_data = bf.create_cal_file(aligned_data,'warmup')
+cal_data = bf.create_cal_file(aligned_data,'all')

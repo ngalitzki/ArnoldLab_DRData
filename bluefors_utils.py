@@ -257,6 +257,42 @@ class bluefors():
         standard_R_all = []
         standard_T_all =  []
 
+        dvalidT_dt = []
+
+        # calculate the slope at every point
+
+        for i in range(valid_T_data_all.shape[0] - 1):
+            dvalidT_dt.append((valid_T_data_all[i+1,1]-valid_T_data_all[i,1])/(valid_T_data_all[i+1,0]-valid_T_data_all[i,0]))
+
+        time_plot = valid_T_data_all[1:,0]
+
+        time_plot = (valid_T_data_all[1:, 0] - valid_T_data_all[0, 0]) / 60. / 60.
+
+
+        # plt.figure(figsize = (8,6))
+        # plt.plot(time_plot, np.abs(dvalidT_dt))
+        # plt.yscale('log')
+        # plt.tight_layout()
+        # plt.show()
+
+        # remove any points where the slope is changing too high i.e. temp is changing too fast
+
+        bad_index = []
+
+
+
+        for i in range(len(dvalidT_dt)):
+            if np.abs(dvalidT_dt[i]) >= 0.001:
+                bad_index.append(i)
+
+
+        valid_T_data_all = np.delete(valid_T_data_all,bad_index,0)
+        valid_R_data_all = np.delete(valid_R_data_all,bad_index,0)
+
+        # print valid_T_data_all.shape
+
+
+
         for i in range(len(standard_calibration['T'])):
 
             # only use data within our specified max and min T
@@ -274,7 +310,7 @@ class bluefors():
         standard_T_all = np.array(standard_T_all)
         measured_R_all = np.sort(valid_R_data_all[minindices_all, 1])
         measured_T_all = np.sort(valid_T_data_all[minindices_all, 1])[::-1]
-        bluefors_times_all = valid_R_data_all[minindices_all, 0]
+        bluefors_times_all_full = valid_R_data_all[minindices_all, 0]
         R_diff_all = standard_R_all - measured_R_all
         T_diff_all = standard_T_all - measured_T_all
 
@@ -282,7 +318,7 @@ class bluefors():
         remove_indices = []
 
         for i in range(measured_T_all.shape[0] - 1):
-            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+            if (bluefors_times_all_full[i+1] - bluefors_times_all_full[i])==0.0:
                 remove_indices.append(i)
 
 
@@ -290,9 +326,10 @@ class bluefors():
         standard_T_all = np.delete(standard_T_all, remove_indices)
         measured_R_all = np.delete(measured_R_all, remove_indices)
         measured_T_all = np.delete(measured_T_all, remove_indices)
-        bluefors_times_all = np.delete(bluefors_times_all, remove_indices)
+        bluefors_times_all = np.delete(bluefors_times_all_full, remove_indices)
         R_diff_all = np.delete(R_diff_all, remove_indices)
         T_diff_all = np.delete(T_diff_all, remove_indices)
+
 
         highlight_indices = []
 
@@ -331,6 +368,7 @@ class bluefors():
         plt.yscale('log')
         plt.plot(t1, valid_T_data_all[:, 1])
         plt.scatter(t2_all, measured_T_all, marker = 'x', color = 'r')
+        # plt.scatter(time_plot, np.abs(dvalidT_dt))
         # plt.scatter(t3, T_highlight, marker = 'x', color = 'g')
         plt.xlabel('Time [hrs]')
         plt.ylabel('Temperature [K]')
@@ -384,14 +422,14 @@ class bluefors():
         standard_T_cooldown = np.array(standard_T_cooldown)
         measured_R_cooldown = np.sort(valid_R_data_cooldown[minindices_cooldown, 1])
         measured_T_cooldown = np.sort(valid_T_data_cooldown[minindices_cooldown, 1])[::-1]
-        bluefors_times_cooldown = valid_R_data_cooldown[minindices_cooldown, 0]
+        bluefors_times_cooldown_full = valid_R_data_cooldown[minindices_cooldown, 0]
         R_diff_cooldown = standard_R_cooldown - measured_R_cooldown
         T_diff_cooldown = standard_T_cooldown - measured_T_cooldown
 
         remove_indices_cooldown = []
 
         for i in range(measured_T_all.shape[0] - 1):
-            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+            if (bluefors_times_cooldown_full[i+1] - bluefors_times_cooldown_full[i])==0.0:
                 remove_indices_cooldown.append(i)
 
 
@@ -399,7 +437,7 @@ class bluefors():
         standard_T_cooldown = np.delete(standard_T_cooldown, remove_indices_cooldown)
         measured_R_cooldown = np.delete(measured_R_cooldown, remove_indices_cooldown)
         measured_T_cooldown = np.delete(measured_T_cooldown, remove_indices_cooldown)
-        bluefors_times_cooldown = np.delete(bluefors_times_cooldown, remove_indices_cooldown)
+        bluefors_times_cooldown = np.delete(bluefors_times_cooldown_full, remove_indices_cooldown)
         R_diff_cooldown = np.delete(R_diff_cooldown, remove_indices_cooldown)
         T_diff_cooldown = np.delete(T_diff_cooldown, remove_indices_cooldown)
 
@@ -407,14 +445,14 @@ class bluefors():
         standard_T_warmup = np.array(standard_T_warmup)
         measured_R_warmup = np.sort(valid_R_data_warmup[minindices_warmup, 1])
         measured_T_warmup = np.sort(valid_T_data_warmup[minindices_warmup, 1])[::-1]
-        bluefors_times_warmup = valid_R_data_warmup[minindices_warmup, 0]
+        bluefors_times_warmup_full = valid_R_data_warmup[minindices_warmup, 0]
         R_diff_warmup = standard_R_warmup - measured_R_warmup
         T_diff_warmup = standard_T_warmup - measured_T_warmup
 
         remove_indices_warmup = []
 
         for i in range(measured_T_all.shape[0] - 1):
-            if (bluefors_times_all[i+1] - bluefors_times_all[i])==0.0:
+            if (bluefors_times_warmup_full[i+1] - bluefors_times_warmup_full[i])==0.0:
                 remove_indices_warmup.append(i)
 
 
@@ -422,7 +460,7 @@ class bluefors():
         standard_T_warmup = np.delete(standard_T_warmup, remove_indices_warmup)
         measured_R_warmup = np.delete(measured_R_warmup, remove_indices_warmup)
         measured_T_warmup = np.delete(measured_T_warmup, remove_indices_warmup)
-        bluefors_times_warmup = np.delete(bluefors_times_warmup, remove_indices_warmup)
+        bluefors_times_warmup = np.delete(bluefors_times_warmup_full, remove_indices_warmup)
         R_diff_warmup = np.delete(R_diff_warmup, remove_indices_warmup)
         T_diff_warmup = np.delete(T_diff_warmup, remove_indices_warmup)
 
@@ -558,14 +596,32 @@ class bluefors():
         # ENTIRE RUN
         minindices_all = []
 
+        bluefors_times_all = np.sort(bluefors_times_all)
+
         for i in range(len(bluefors_times_all)):
 
             diff_all = np.abs(srs_data[:, 0] - bluefors_times_all[i])
             indices_all = np.where(diff_all == np.min(diff_all))[0][0]
             minindices_all.append(indices_all)
+            print (np.min(diff_all),indices_all)
+            print (srs_data[indices_all,0]-srs_data[0,0])/60./60.
+
+
+        print minindices_all
 
         srs_times_all = np.array(srs_data[minindices_all, 0])
         uncal_R_all = np.sort(np.array(srs_data[minindices_all, 1:]), axis = 0)
+
+        print bluefors_times_all
+
+        print (bluefors_times_all - bluefors_times_all[0])/60./60.
+
+        # print (srs_times_all-srs_times_all[len(srs_times_all)-1])/60./60.
+
+        print (srs_data[:93,0])#-srs_data[0,0])/60./60.
+
+        # print uncal_R_all
+        # print measured_T_all
 
         plt.figure(figsize = (8,6))
 
