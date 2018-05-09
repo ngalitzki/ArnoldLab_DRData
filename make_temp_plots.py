@@ -3,17 +3,21 @@ import numpy as np
 
 bf = bluefors()
 
-bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData/bluefors_temp_logs_raw'
-#bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData'
+#bluefors_log_path = '/home/arnoldlabws2/ArnoldLab_DRData/bluefors_temp_logs_raw'
+bluefors_log_path = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData/bluefors_temp_logs_raw'
 
 bluefors_data_start = '18-03-22'
 bluefors_data_stop = '18-03-23'
 
-bluefors_calpath = '/home/arnoldlabws2/ArnoldLab_DRData/sensors/'
+#bluefors_calpath = '/home/arnoldlabws2/ArnoldLab_DRData/sensors/'
+bluefors_calpath = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData/sensors/'
+
 bluefors_calfiles = ['R10250.340']
 bluefors_standard_channel = 6
 
-srs_datafile = '/home/arnoldlabws2/ArnoldLab_DRData/180321_dr_thermo_cal/Data/20180322-144740RAW.txt'
+#srs_datafile = '/home/arnoldlabws2/ArnoldLab_DRData/180321_dr_thermo_cal/Data/20180322-144740RAW.txt'
+srs_datafile = '/Users/joeseibert/Google Drive UCSD/Research/ArnoldLab_DRData/180321_dr_thermo_cal/Data/20180322-144740RAW.txt'
+
 
 
 mashed_bluefors_data = bf.bluefors_mashup(bluefors_log_path,bluefors_data_start,bluefors_data_stop)
